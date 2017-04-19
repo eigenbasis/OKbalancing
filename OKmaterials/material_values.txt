@@ -1,0 +1,33 @@
+obsidians   72.73
+degella 44.44
+mals    44.44
+erksu_zars  40.0
+skemba  26.67
+kauls   19.05
+staipeknis  16.0
+ola 11.43
+vilna   8.00
+piens   5.71
+dimants 80.0
+citrins 66.67
+akmens  66.67
+nefrits 50.0
+jasma   33.33
+perle   33.33
+magiska_essence 20.0
+udens   20.0
+vara_gabalins   20.0
+vasks   20.0
+inde    13.33
+vulkaniskais_iezis  10.0
+smilsakmens 6.67
+alvejas_zieds   5.71
+dzelzs_gabalins 5.71
+savannas_zale   5.71
+
+
+diamond = 0.05
+citrin = 0.06
+jade = 0.08
+jasper = 0.12
+pearl = 0.12
