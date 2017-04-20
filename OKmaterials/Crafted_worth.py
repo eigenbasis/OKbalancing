@@ -9,6 +9,7 @@ gained_worth = []
 # basic function should be to just add values of the used materials
 # TODO I don't like value of cloth, clay_brick
 # TODO there are things that take 1h to craft which is also placeholder value if no time is needed
+# TODO gold brick and gold dubloun
 
 
 def worth(timer, crafted_amount):
