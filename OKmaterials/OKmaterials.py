@@ -1,6 +1,6 @@
 # OKmaterials.py
 
-from worth_dic import item_value
+# from worth_dic import item_value
 import json
 
 
@@ -18,7 +18,7 @@ drop_rate = {"obsidian": 0.055, "fireoil": 0.09, "thorny_twig": 0.1, "bone": 0.2
              "coal": 0.03, "iron_ore": 0.07, "copper_ore": 0.08, "cactus_flower": 0.004, "limestone": 0.5,
              "earthworm": 0.17, "bug": 0.15, "green_worm": 0.1, "silk_thread": 4.0, "glass": 25.0, "pergament": 20.0,
              "gold_chain": 10.0, "green_powder": 0.5, "blue_powder": 1.0, "violet_powder": 1.5, "moon_apple": 25.0,
-             "energy": 0.25}
+             "energy": 0.25, "time_eggs": 0.015, "time_wool": 0.003, "time_milk": 0.002}
 
 # item_value = {}
 
@@ -26,6 +26,9 @@ drop_rate = {"obsidian": 0.055, "fireoil": 0.09, "thorny_twig": 0.1, "bone": 0.2
 # Use 1 / materials value
 # TODO what if material takes timer not drop_rate, like corn or violet berries
 # for harvesting: drop_rate = 1 / (time in h * 60 / 5 - 2 / amount you get from harvesting)
+# but harvesting stuff should be nerfed so / 10
+# for animals: drop_drop = 1 / (time in h * 60 / 5 - 1) * ensured_drop from pure drop_rate
+# might use new_eggs and stuff but also nerfed
 # for mining thing: drop_rate = 1 / (time in h * 60 / 5 - used_energy / amount you get + used material ensured_drop)
 # TODO what if energy is needed to craft. one energy ensured_drop == one_energy (should be)
 # energy drop_rate is 0.25 and is included in description
@@ -55,6 +58,7 @@ drop_rate = {"obsidian": 0.055, "fireoil": 0.09, "thorny_twig": 0.1, "bone": 0.2
 # DONE as part of worth_dic.json
 # TODO make it so item_value is writen to a file so can be saved outside of loop
 # DONE saves in worth_dic.json and new script reads that and assigns to item_value which is a dic
+# TODO it' s NOT loading .json RIGHT AT ALL! --> Never leave it completely empty it will fuck shit up ---> the Y continue loop is what breaks it
 
 """for crafting recipe - read crafting.JSON, split reward at, remove ones where
 need to know how many of what thing is used to create the item
@@ -91,11 +95,6 @@ def worth(material_amount, timer, crafted_amount, material_drop_rate):
     timer = float(input("Craft timer: "))
     crafted_amount = float(input("Crafted amount: "))
     print("-----------------")
-    material_drop_rate = drop_rate[material_name]
-    if material_drop_rate >= 1:
-        ensured_drop = material_drop_rate
-    else:
-        ensured_drop = 1 / material_drop_rate
     worth_value = ((ensured_drop * one_energy) * material_amount * timer) / crafted_amount
     gained_worth.append(worth_value)
 
@@ -122,7 +121,7 @@ while cont == "Y":
     if item in item_value:
         print(item_value[item])
     else:
-        needed_material_amount = int(input("Needed material amount "))
+        needed_material_amount = int(input("Needed material amount: "))
         item_worth(material_amount, timer, crafted_amount, material_drop_rate, needed_material_amount, item)
     print(item_value)
     cont = str(input("Continue? Y/N: "))
