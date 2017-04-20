@@ -24,8 +24,8 @@
 	"savannah_grass": 5.714285714285714,
 	"stone": 8.0,
 	"water": 11.76470588235294,
-	"flax": 571.4285714285714,
-	"corn": 200.0,
+	"flax": 57.1428571428571,
+	"corn": 20.0,
 	"violet_berries": 133.33333333333334,
 	"wood": 8.0,
 	"coal": 133.33333333333334,
@@ -44,5 +44,8 @@
 	"blue_powder": 4.0,
 	"violet_powder": 6.0,
 	"moon_apple": 100.0,
-	"energy": 16.0
+	"energy": 16.0,
+	"time_eggs": 26.6666666666667,
+	"time_wool": 133.3333333333333,
+	"time_milk": 200.0
 }
