@@ -7,6 +7,8 @@ with open("worth_dic.json", "r") as f:
 gained_worth = []
 
 # basic function should be to just add values of the used materials
+# TODO I don't like value of cloth, clay_brick
+# TODO there are things that take 1h to craft which is also placeholder value if no time is needed
 
 
 def worth(timer, crafted_amount):
@@ -25,7 +27,7 @@ def item_worth():
     # timer in seconds doesn't work cause value too high compared to other ones. should be in hours
     # but what if it's not full hour?
     # could be in minutes
-    timer = float(input("Craft timer: "))
+    timer = float(input("Craft timer (in hours): "))
     crafted_amount = float(input("Crafted amount: "))
     print("-----------------")
     for i in range(needed_material_amount):

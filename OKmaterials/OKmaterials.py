@@ -12,7 +12,7 @@ with open("worth_dic.json", "r") as f:
 # f = open("worth_dic.txt", "w")
 drop_rate = {"obsidian": 0.055, "fireoil": 0.09, "thorny_twig": 0.1, "bone": 0.21, "jute_string": 0.25, "egg": 0.35,
              "wool": 0.5, "milk": 0.7, "diamond": 0.05, "citrin": 0.06, "jade": 0.08, "jasper": 0.12, "pearl": 0.12,
-             "dark_magic_potion": 0.2, "small_copper_ore": 0.2, "bees_wax": 0.2, "poison": 0.3, "vulcano_rock": 0.4,
+             "dark_magic_potion": 0.2, "small_copper_ore": 0.2, "bees_wax": 0.2, "poison": 0.3, "volcanic_rock": 0.4,
              "savannah_rock": 0.6, "aloe_blossom": 0.7, "small_iron_ore": 0.7, "savannah_grass": 0.7, "stone": 0.5,
              "clay": 0.5, "water": 0.34, "flax": 0.007, "corn": 0.02, "violet_berries": 0.03, "wood": 0.5,
              "coal": 0.03, "iron_ore": 0.07, "copper_ore": 0.08, "cactus_flower": 0.004, "limestone": 0.5,
