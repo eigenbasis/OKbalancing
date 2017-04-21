@@ -12,7 +12,8 @@ with open("worth_dic.json", "r") as f:
 drop_rate = {"obsidian": 0.055, "thorny_twig": 0.1, "bone": 0.21, "jute_string": 0.25, "egg": 0.35,
              "wool": 0.5, "milk": 0.7, "diamond": 0.05, "citrin": 0.06, "jade": 0.08, "jasper": 0.12, "pearl": 0.036,
              "small_copper_ore": 0.2, "stone_splinter": 0.15, "savannah_rock": 0.6, "small_iron_ore": 0.7,
-             "savannah_grass": 0.7, "earthworm": 0.17, "bug": 0.15, "green_worm": 0.1, "copper_ore": 0.33, "iron_ore": 0.67}
+             "savannah_grass": 0.7, "earthworm": 0.17, "bug": 0.15, "green_worm": 0.1, "copper_ore": 0.33,
+             "iron_ore": 0.67, "gold_doubloon": 0.037, "silver_doubloon": 0.296, "bronze_doubloon": 0.667}
 
 # TODO what if the used materials are crafted not found
 # Use 1 / materials value
