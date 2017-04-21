@@ -18,7 +18,7 @@ def worth(timer, crafted_amount):
     material_amount = float(input("Used material amount: "))
     material_worth = item_value[material_name]
     print("-----------------")
-    worth_value = (material_worth * material_amount * timer) / crafted_amount
+    worth_value = ((material_worth * material_amount) + timer) / crafted_amount
     gained_worth.append(worth_value)
 
 
@@ -28,8 +28,12 @@ def item_worth():
     needed_material_amount = int(input("Needed material amount: "))
     # 5min == 4 cents
     # 1min == 1.25 cents
-    raw_timer = float(input("Craft timer (in minutes): "))
-    timer = raw_timer / 1.25
+    has_timer = str(input("Does crafting take time? Y/N: "))
+    if has_timer == "Y":
+        raw_timer = float(input("Craft timer (in minutes): "))
+        timer = raw_timer / 1.25
+    else:
+        timer = 0
     crafted_amount = float(input("Crafted amount: "))
     print("-----------------")
     for i in range(needed_material_amount):

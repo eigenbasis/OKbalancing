@@ -11,11 +11,8 @@ with open("worth_dic.json", "r") as f:
 
 drop_rate = {"obsidian": 0.055, "thorny_twig": 0.1, "bone": 0.21, "jute_string": 0.25, "egg": 0.35,
              "wool": 0.5, "milk": 0.7, "diamond": 0.05, "citrin": 0.06, "jade": 0.08, "jasper": 0.12, "pearl": 0.036,
-             "small_copper_ore": 0.2, "poison": 0.3, "volcanic_rock": 0.4, "stone_splinter": 0.15,
-             "savannah_rock": 0.6, "aloe_blossom": 0.7, "small_iron_ore": 0.7, "savannah_grass": 0.7,"iron_ore": 0.07,
-             "copper_ore": 0.08,"earthworm": 0.17, "bug": 0.15, "green_worm": 0.1, "silk_thread": 4.0, "glass": 25.0,
-             "pergament": 20.0,"gold_chain": 10.0, "green_powder": 0.5, "blue_powder": 1.0, "violet_powder": 1.5,
-             "moon_apple": 25.0, "gold_doubloon": 0.037, "silver_doubloon": 0.296, "bronze_doubloon": 0.667}
+             "small_copper_ore": 0.2, "stone_splinter": 0.15, "savannah_rock": 0.6, "small_iron_ore": 0.7,
+             "savannah_grass": 0.7, "earthworm": 0.17, "bug": 0.15, "green_worm": 0.1}
 
 # TODO what if the used materials are crafted not found
 # Use 1 / materials value
@@ -102,19 +99,22 @@ def worth(item, additional_worth):
 def additional_items():
     # needs value to add to worth of used items
     additional_total = []
-    additional_amount = int(input("How many additional items are needed?: "))
+    additional_amount = int(input("How many different additional items are needed?: "))
     for i in range(additional_amount):
         add_item = str(input("Additional item: "))
-        additional_total.append(item_value[add_item])
+        add_item_amount = int(input("How many of these items are used?: "))
+        for n in range(add_item_amount):
+            additional_total.append(item_value[add_item])
     additional_worth = sum(float(x) for x in additional_total)
     worth(item, additional_worth)
 
 
 item = str(input("Item you want to calculate worth for: "))
-needs_others = str(input("Are additional items needed? Y/N: "))
 if item in item_value:
     print("Items worth:", item_value[item])
-if needs_others == "Y":
-    additional_items()
 else:
-    worth(item, 0)
+    needs_others = str(input("Are additional items needed? Y/N: "))
+    if needs_others == "Y":
+        additional_items()
+    else:
+        worth(item, 0)
