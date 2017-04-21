@@ -9,7 +9,8 @@ gained_worth = []
 # basic function should be to just add values of the used materials
 # TODO I don't like value of cloth, clay_brick
 # TODO there are things that take 1h to craft which is also placeholder value if no time is needed
-# TODO gold brick and gold dubloun
+# TODO gold brick and gold dublouns
+# for now pretend one try takes one energy, could include quest / key needed
 
 
 def worth(timer, crafted_amount):
@@ -25,10 +26,10 @@ def item_worth():
     # depending on item amount call worth() for each item
     # item = str(input("Item you want to calculate worth for: "))
     needed_material_amount = int(input("Needed material amount: "))
-    # timer in seconds doesn't work cause value too high compared to other ones. should be in hours
-    # but what if it's not full hour?
-    # could be in minutes
-    timer = float(input("Craft timer (in hours): "))
+    # 5min == 4 cents
+    # 1min == 1.25 cents
+    raw_timer = float(input("Craft timer (in minutes): "))
+    timer = raw_timer / 1.25
     crafted_amount = float(input("Crafted amount: "))
     print("-----------------")
     for i in range(needed_material_amount):
