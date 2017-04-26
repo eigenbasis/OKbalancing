@@ -31,11 +31,13 @@ drop_rate = {"obsidian": 0.055, "thorny_twig": 0.1, "bone": 0.21, "jute_string":
 # done for stone and clay
 # TODO wood stuff. could be similar to clay and stone
 # is similar to clay and stone. is EXACTLY like clay and stone
-# TODO items not crafted OR dropped, like cirtni un klits sulas un garsvielas
+# TODO items not crafted OR dropped, like klits sulas un garsvielas
 # TODO make so can enter items name and script will pull value from drop_rates.py
 # replaced that with dictionary and made input work
 # TODO for drop rates could take into account mine timer, like for water
+# DONE mines takes the unupgraded version
 # TODO crafted amount and timer could be out side of the loop, somehow
+# DONE
 # TODO add coconuts and collection items
 # TODO what about items that are not materials?
 # TODO what to do with materials you can only buy?
@@ -45,6 +47,7 @@ drop_rate = {"obsidian": 0.055, "thorny_twig": 0.1, "bone": 0.21, "jute_string":
 # TODO if drop_rate > 1
 # if > 1 takes drop_rate as ensured_dorp
 # TODO items that ask for other crafted items
+# seperate scripts for base and crafted materials
 # TODO make so need to write in material want to check and it spits out worth
 # DONE asks for material and checks if it's in item_value dic
 # TODO make so appends item_value with calculated items worth
@@ -54,7 +57,7 @@ drop_rate = {"obsidian": 0.055, "thorny_twig": 0.1, "bone": 0.21, "jute_string":
 # TODO what to do with items that take time?
 # DONE 5min = 4 cents
 # TODO food is not being taken into account yet. shells are taken weirdly into account
-# TODO for now skipping items you can only buy with money
+# TODO items you can only buy with money
 
 """for crafting recipe - read crafting.JSON, split reward at, remove ones where
 need to know how many of what thing is used to create the item

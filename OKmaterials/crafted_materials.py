@@ -7,8 +7,8 @@ with open("worth_dic.json", "r") as f:
 gained_worth = []
 
 # basic function should be to just add values of the used materials
-# TODO I don't like value of cloth, clay_brick
 # TODO there are things that take 1h to craft which is also placeholder value if no time is needed
+# Fixed by move to minute use
 # TODO gold brick and gold dublouns
 # for now pretend one try takes one energy, could include quest / key needed
 
