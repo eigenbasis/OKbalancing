@@ -13,7 +13,12 @@ drop_rate = {"obsidian": 0.055, "thorny_twig": 0.1, "bone": 0.21, "jute_string":
              "wool": 0.5, "milk": 0.7, "diamond": 0.05, "citrin": 0.06, "jade": 0.08, "jasper": 0.12, "pearl": 0.036,
              "small_copper_ore": 0.2, "stone_splinter": 0.15, "savannah_rock": 0.6, "small_iron_ore": 0.7,
              "savannah_grass": 0.7, "earthworm": 0.17, "bug": 0.15, "green_worm": 0.1, "copper_ore": 0.33,
-             "iron_ore": 0.67, "gold_doubloon": 0.037, "silver_doubloon": 0.296, "bronze_doubloon": 0.667}
+             "iron_ore": 0.67, "gold_doubloon": 0.037, "silver_doubloon": 0.296, "bronze_doubloon": 0.667,
+             "small_fish": 0.5, "sea_shell": 0.15, "salmon": 0.1, "boot": 0.07, "striped_angelfish": 0.05,
+             "seashell_amber": 0.06, "seashell_horn": 0.07, "shark_mini": 0.26, "royal_violet": 0.05, "old_key": 0.04,
+             "seashell_ pink": 0.06, "seashell_star": 0.06, "sea_cabbage": 0.2, "gold_fish": 0.05, "blue_guppy": 0.1,
+             "seashell_royal": 0.06, "jellyfish": 0.15, "royal_crab": 0.1, "octopus": 0.06, "doubloon_silver": 0.05,
+             "shark_hammerhead": 0.07, "clownfish": 0.2, "lion_fish": 0.1}
 
 # TODO what if the used materials are crafted not found
 # Use 1 / materials value
@@ -56,8 +61,10 @@ drop_rate = {"obsidian": 0.055, "thorny_twig": 0.1, "bone": 0.21, "jute_string":
 # DONE saves in worth_dic.json and new script reads that and assigns to item_value which is a dic
 # TODO what to do with items that take time?
 # DONE 5min = 4 cents
-# TODO food is not being taken into account yet. shells are taken weirdly into account
+# TODO food is not being taken into account yet
 # TODO items you can only buy with money
+# DONE 1 shell = 0.6
+# TODO fishes, don't forget that uses worms and stuff, but also has drop_rate
 
 """for crafting recipe - read crafting.JSON, split reward at, remove ones where
 need to know how many of what thing is used to create the item
