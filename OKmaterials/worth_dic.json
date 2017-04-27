@@ -71,5 +71,9 @@
 	"reed_sickle": 64.4784349729066,
 	"souvenir_spider": 601.5477124183006,
 	"souvenir_star": 1236.6060606060607,
-	"souvenir_palm": 805.3333333333333
+	"souvenir_palm": 805.3333333333333,
+	"shell": 0.6,
+	"glass": 150,
+	"pergament": 120,
+	"gold_chain": 60
 }
