@@ -23,11 +23,9 @@ drop_rate = {"obsidian": 0.055, "thorny_twig": 0.1, "bone": 0.21, "jute_string":
 # TODO what if the used materials are crafted not found
 # Use 1 / materials value
 # TODO what if material takes timer not drop_rate, like corn or violet berries
-# for harvesting: drop_rate = 1 / (time in h * 60 / 5 - 2 / amount you get from harvesting)
-# but harvesting stuff should be nerfed so / 10
-# for animals: drop_drop = 1 / (time in h * 60 / 5 - 1) * ensured_drop from pure drop_rate
-# might use new_eggs and stuff but also nerfed
-# for mining thing: drop_rate = 1 / (time in h * 60 / 5 - used_energy / amount you get + used material ensured_drop)
+# for plants: drop_rate == 1 and main factor is time it takes to ripen
+# TODO this kinda breaks because of grapes and truffles
+# for animals: TODO include HP
 # TODO what if energy is needed to craft. one energy ensured_drop == one_energy (should be)
 # energy drop_rate is 0.25 and is included in description
 # TODO pure drop_rate can not be items value because of ensured_drop problem
@@ -65,6 +63,9 @@ drop_rate = {"obsidian": 0.055, "thorny_twig": 0.1, "bone": 0.21, "jute_string":
 # TODO items you can only buy with money
 # DONE 1 shell = 0.6
 # TODO fishes, don't forget that uses worms and stuff, but also has drop_rate
+# DONE
+# TODO drops form plants in theory use those plants to gain
+# TODO redo things with flax and corn and berries_violet un straw_bundle
 
 """for crafting recipe - read crafting.JSON, split reward at, remove ones where
 need to know how many of what thing is used to create the item
@@ -90,6 +91,10 @@ average per energy spent ends up at 6.6125
 rounding down to 6 to at least somewhat account for food
 1 energy == 6 shells
 1 shell == 0.6
+
+when calculating for plants their cost in shells is not used, cause would take changing code and probably
+does not effect the value much, because shells are considerably worthless
+for plant tress energy used is 1 instead of 2 like for plantation plants
 """
 
 # energy value from previous calculations for rubies project. based on energies price in real money
