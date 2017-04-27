@@ -68,7 +68,22 @@ should also take into account how often something can be gotten. not only timer 
 should also note how many items the recipe crafts
 how many energies would it take to ensure material drop
 
-basic materials don't take into account if another material besides energy is used to obtain it"""
+basic materials don't take into account if another material besides energy is used to obtain it
+
+1 energy costs 0.4 cents has base value 4
+1 ruby costs 4 cents has base value 40
+
+ruby price in store can't be used to calculate worth's cause it's highly unbalanced
+need to use price in shells instead
+
+shell value calculated based on 4 base animals - chicken, pig, sheep, cow
+average from shells gained for 1 energy spent
+food is not taken into account because food and shells are intertwined values
+average per energy spent ends up at 6.6125
+rounding down to 6 to at least somewhat account for food
+1 energy == 6 shells
+1 shell == 0.6
+"""
 
 # energy value from previous calculations for rubies project. based on energies price in real money
 # one energy is worth 4 cents, thusly the worth of item will be in cents
