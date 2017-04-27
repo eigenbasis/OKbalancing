@@ -75,5 +75,9 @@
 	"shell": 0.6,
 	"glass": 150,
 	"pergament": 120,
-	"gold_chain": 60
+	"gold_chain": 60,
+	"salt": 1.2,
+	"sugar": 2.4,
+	"yest": 3.6,
+	"candy": 6
 }
