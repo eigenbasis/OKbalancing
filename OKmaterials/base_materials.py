@@ -18,7 +18,8 @@ drop_rate = {"obsidian": 0.055, "thorny_twig": 0.1, "bone": 0.21, "jute_string":
              "seashell_amber": 0.06, "seashell_horn": 0.07, "shark_mini": 0.26, "royal_violet": 0.05, "old_key": 0.04,
              "seashell_ pink": 0.06, "seashell_star": 0.06, "sea_cabbage": 0.2, "gold_fish": 0.05, "blue_guppy": 0.1,
              "seashell_royal": 0.06, "jellyfish": 0.15, "royal_crab": 0.1, "octopus": 0.06, "doubloon_silver": 0.05,
-             "shark_hammerhead": 0.07, "clownfish": 0.2, "lion_fish": 0.1}
+             "shark_hammerhead": 0.07, "clownfish": 0.2, "lion_fish": 0.1, "blossom_aloe": 0.7, "blossom_curcuma": 0.7,
+             "bees_wax": 0.3, "gerbera": 0.06}
 
 # TODO what if the used materials are crafted not found
 # Use 1 / materials value
@@ -66,6 +67,8 @@ drop_rate = {"obsidian": 0.055, "thorny_twig": 0.1, "bone": 0.21, "jute_string":
 # DONE
 # TODO drops form plants in theory use those plants to gain
 # TODO redo things with flax and corn and berries_violet un straw_bundle
+# DONE
+# TODO animals, based on shell_gain?
 
 """for crafting recipe - read crafting.JSON, split reward at, remove ones where
 need to know how many of what thing is used to create the item
@@ -138,6 +141,11 @@ def additional_items():
             additional_total.append(item_value[add_item])
     additional_worth = sum(float(x) for x in additional_total)
     worth(item, additional_worth)
+
+
+def animals():
+    # function to calculate worth of animals
+    pass
 
 
 item = str(input("Item you want to calculate worth for: "))
