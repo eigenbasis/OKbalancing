@@ -1,0 +1,13 @@
+"dark_magic_potion": 0.2, [vajag 15 menesgaismas eleksirus]
+"bees_wax": 0.2, [vajag cukuru]
+"poison": 0.3, [vajag reptilu baribu]
+"volcanic_rock": 0.4, [vajag lavas cirtni]
+"aloe_blossom": 0.7, [vajag labaku maceti]
+"silk_thread": 4.0, 
+"glass": 25.0,
+"pergament": 20.0,
+"gold_chain": 10.0, 
+"green_powder": 0.5, 
+"blue_powder": 1.0, 
+"violet_powder": 1.5,
+"moon_apple": 25.0,
