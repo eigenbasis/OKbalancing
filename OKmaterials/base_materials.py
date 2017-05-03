@@ -69,6 +69,8 @@ drop_rate = {"obsidian": 0.055, "thorny_twig": 0.1, "bone": 0.21, "jute_string":
 # TODO redo things with flax and corn and berries_violet un straw_bundle
 # DONE
 # TODO animals, based on shell_gain?
+# TODO materials you get form animals (for egg chicken is additional item)
+# TODO fishing stuff
 
 """for crafting recipe - read crafting.JSON, split reward at, remove ones where
 need to know how many of what thing is used to create the item
@@ -103,13 +105,17 @@ for plant tress energy used is 1 instead of 2 like for plantation plants
 # energy value from previous calculations for rubies project. based on energies price in real money
 # one energy is worth 4 cents, thusly the worth of item will be in cents
 # 5min = 4 cents
-one_energy = 4
+one_energy = 4.0
+one_ruby = 40.0
+one_shell = 0.6
+one_food = 36.0
 
 # calculates the worth of items
 gained_worth = []
 
 
 def worth(item, additional_worth):
+    # worth for basic base materials
     material_amount = float(input("Gained material amount: "))
     if item in drop_rate:
         material_drop_rate = drop_rate[item]
@@ -123,7 +129,7 @@ def worth(item, additional_worth):
     used_energy = float(input("Energy used: "))
     print("-----------------")
     timer = raw_timer / 1.25
-    items_worth = ((ensured_drop * (used_energy * one_energy)) / material_amount) + timer + additional_worth
+    items_worth = ((ensured_drop * (used_energy * one_energy) + timer) / material_amount) + additional_worth
     with open("worth_dic.json", "w") as g:
         item_value[item] = items_worth
         json.dump(item_value, g)
@@ -131,7 +137,8 @@ def worth(item, additional_worth):
 
 
 def additional_items():
-    # needs value to add to worth of used items
+    # additional function to worth() if additional items are needed
+    # mainly used for mines
     additional_total = []
     additional_amount = int(input("How many different additional items are needed?: "))
     for i in range(additional_amount):
@@ -143,17 +150,57 @@ def additional_items():
     worth(item, additional_worth)
 
 
-def animals():
+def animals(item):
     # function to calculate worth of animals
-    pass
+    feditem_total = []
+    raw_timer = float(input("Timer in min (0 if none): "))
+    timer = raw_timer / 1.25
+    hp = float(input("Animals HP: "))
+    raw_currency = str(input("What do you pay with: "))
+    feditem_amount = int(input("How many different items you feed animal with: "))
+    for i in range(feditem_amount):
+        food_item = str(input("Fed item: "))
+        food_item_amount = int(input("How many of these items are used?: "))
+        for n in range(food_item_amount):
+            feditem_total.append(item_value[food_item])
+    fedfood_worth = sum(float(x) for x in feditem_total)
+    currency = item_value[raw_currency]
+    currency_amount = float(input("How much of this currency is paid: "))
+    items_worth = ((one_energy + fedfood_worth + timer) * hp) + (currency * currency_amount)
+    with open("worth_dic.json", "w") as g:
+        item_value[item] = items_worth
+        json.dump(item_value, g)
+    print("Items worth:", items_worth)
 
+
+def plants(item):
+    # function to calculate worth of plants
+    raw_timer = float(input("Timer in min (0 if none): "))
+    timer = raw_timer / 1.25
+    material_amount = float(input("Gained amount: "))
+    raw_currency = str(input("What do you pay with: "))
+    currency = item_value[raw_currency]
+    currency_amount = float(input("How much of this currency is paid: "))
+    items_worth = (((one_energy * 2) + timer + (currency * currency_amount)) / material_amount)
+    with open("worth_dic.json", "w") as g:
+        item_value[item] = items_worth
+        json.dump(item_value, g)
+    print("Items worth:", items_worth)
 
 item = str(input("Item you want to calculate worth for: "))
 if item in item_value:
     print("Items worth:", item_value[item])
 else:
-    needs_others = str(input("Are additional items needed? Y/N: "))
-    if needs_others == "Y":
-        additional_items()
+    is_plant = str(input("Is the item a plant? Y/N: "))
+    if is_plant == "Y" or is_plant == "y":
+        plants(item)
     else:
-        worth(item, 0)
+        is_animal = str(input("Is the item an animal? Y/N: "))
+        if is_animal == "Y" or is_animal == "y":
+            animals(item)
+        else:
+            needs_others = str(input("Are additional items needed? Y/N: "))
+            if needs_others == "Y" or needs_others == "y":
+                additional_items()
+            else:
+                worth(item, 0)
