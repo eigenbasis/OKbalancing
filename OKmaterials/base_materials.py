@@ -13,11 +13,11 @@ drop_rate = {"obsidian": 0.055, "thorny_twig": 0.1, "bone": 0.21, "jute_string":
              "wool": 0.5, "milk": 0.7, "diamond": 0.05, "citrin": 0.06, "jade": 0.08, "jasper": 0.12, "pearl": 0.036,
              "small_copper_ore": 0.2, "stone_splinter": 0.15, "savannah_rock": 0.6, "small_iron_ore": 0.7,
              "savannah_grass": 0.7, "earthworm": 0.17, "bug": 0.15, "green_worm": 0.1, "copper_ore": 0.33,
-             "iron_ore": 0.67, "gold_doubloon": 0.037, "silver_doubloon": 0.296, "bronze_doubloon": 0.667,
+             "iron_ore": 0.67, "doubloon_gold": 0.037, "doubloon_silver": 0.296, "doubloon_bronze": 0.667,
              "small_fish": 0.5, "sea_shell": 0.15, "salmon": 0.1, "boot": 0.07, "striped_angelfish": 0.05,
              "seashell_amber": 0.06, "seashell_horn": 0.07, "shark_mini": 0.26, "royal_violet": 0.05, "old_key": 0.04,
              "seashell_ pink": 0.06, "seashell_star": 0.06, "sea_cabbage": 0.2, "gold_fish": 0.05, "blue_guppy": 0.1,
-             "seashell_royal": 0.06, "jellyfish": 0.15, "royal_crab": 0.1, "octopus": 0.06, "doubloon_silver": 0.05,
+             "seashell_royal": 0.06, "jellyfish": 0.15, "royal_crab": 0.1, "octopus": 0.06, "doubloon_silver2": 0.05,
              "shark_hammerhead": 0.07, "clownfish": 0.2, "lion_fish": 0.1, "blossom_aloe": 0.7, "blossom_curcuma": 0.7,
              "bees_wax": 0.3, "gerbera": 0.06}
 
@@ -144,6 +144,7 @@ def additional_items():
     for i in range(additional_amount):
         add_item = str(input("Additional item: "))
         add_item_amount = int(input("How many of these items are used?: "))
+        print("-----------------")
         for n in range(add_item_amount):
             additional_total.append(item_value[add_item])
     additional_worth = sum(float(x) for x in additional_total)
@@ -163,6 +164,7 @@ def animals(item):
     for i in range(feditem_amount):
         food_item = str(input("Fed item: "))
         food_item_amount = int(input("How many of these items are used?: "))
+        print("-----------------")
         for n in range(food_item_amount):
             feditem_total.append(item_value[food_item])
     fedfood_worth = sum(float(x) for x in feditem_total)
@@ -178,10 +180,15 @@ def plants(item):
     raw_timer = float(input("Timer in min (0 if none): "))
     timer = raw_timer / 1.25
     material_amount = float(input("Gained amount: "))
-    raw_currency = str(input("What do you pay with: "))
-    currency = item_value[raw_currency]
-    currency_amount = float(input("How much of this currency is paid: "))
-    items_worth = (((one_energy * 2) + timer + (currency * currency_amount)) / material_amount)
+    currency_total = []
+    dif_currencies = int(input("How many different currencies are used: "))
+    for i in range(dif_currencies):
+        currency = str(input("What do you pay with: "))
+        currency_amount = int(input("How much of this currency is paid: "))
+        print("-----------------")
+        for n in range(currency_amount):
+            currency_total.append(item_value[currency])
+    items_worth = (((one_energy * 2) + timer + sum(float(x) for x in currency_total)) / material_amount)
     with open("worth_dic.json", "w") as g:
         item_value[item] = items_worth
         json.dump(item_value, g)
