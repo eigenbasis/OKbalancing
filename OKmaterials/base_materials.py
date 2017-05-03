@@ -157,6 +157,8 @@ def animals(item):
     timer = raw_timer / 1.25
     hp = float(input("Animals HP: "))
     raw_currency = str(input("What do you pay with: "))
+    currency = item_value[raw_currency]
+    currency_amount = float(input("How much of this currency is paid: "))
     feditem_amount = int(input("How many different items you feed animal with: "))
     for i in range(feditem_amount):
         food_item = str(input("Fed item: "))
@@ -164,8 +166,6 @@ def animals(item):
         for n in range(food_item_amount):
             feditem_total.append(item_value[food_item])
     fedfood_worth = sum(float(x) for x in feditem_total)
-    currency = item_value[raw_currency]
-    currency_amount = float(input("How much of this currency is paid: "))
     items_worth = ((one_energy + fedfood_worth + timer) * hp) + (currency * currency_amount)
     with open("worth_dic.json", "w") as g:
         item_value[item] = items_worth
