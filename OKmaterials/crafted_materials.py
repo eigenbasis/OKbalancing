@@ -29,7 +29,7 @@ def item_worth():
     # 5min == 4 cents
     # 1min == 1.25 cents
     has_timer = str(input("Does crafting take time? Y/N: "))
-    if has_timer == "Y":
+    if has_timer == "Y" or has_timer == "y":
         raw_timer = float(input("Craft timer (in minutes): "))
         timer = raw_timer / 1.25
     else:
