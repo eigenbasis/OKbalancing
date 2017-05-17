@@ -15,11 +15,33 @@ drop_rate = {"obsidian": 0.055, "thorny_twig": 0.1, "bone": 0.21, "jute_string":
              "savannah_grass": 0.7, "earthworm": 0.17, "bug": 0.15, "green_worm": 0.1, "copper_ore": 0.33,
              "iron_ore": 0.67, "doubloon_gold": 0.037, "doubloon_silver": 0.296, "doubloon_bronze": 0.667,
              "small_fish": 0.5, "sea_shell": 0.15, "salmon": 0.1, "boot": 0.07, "striped_angelfish": 0.05,
-             "seashell_amber": 0.06, "seashell_horn": 0.07, "shark_mini": 0.26, "royal_violet": 0.05, "old_key": 0.04,
-             "seashell_ pink": 0.06, "seashell_star": 0.06, "sea_cabbage": 0.2, "gold_fish": 0.05, "blue_guppy": 0.1,
-             "seashell_royal": 0.06, "jellyfish": 0.15, "royal_crab": 0.1, "octopus": 0.06, "doubloon_silver2": 0.05,
+             "shark_mini": 0.26, "royal_violet": 0.05, "old_key_shark": 0.04,
+             "sea_cabbage": 0.2, "gold_fish": 0.05, "blue_guppy": 0.1,
+             "jellyfish": 0.15, "royal_crab": 0.1, "octopus": 0.06, "doubloon_silver_octopus": 0.05,
              "shark_hammerhead": 0.07, "clownfish": 0.2, "lion_fish": 0.1, "blossom_aloe": 0.7, "blossom_curcuma": 0.7,
-             "bees_wax": 0.3, "gerbera": 0.06}
+             "bees_wax": 0.3,
+             "col_butterfly_tricolor": 0.07, "col_butterfly_pear": 0.06, "col_butterfly_fire": 0.07, "col_butterfly_romantic": 0.05,
+             "col_butterfly_pink": 0.08, "col_butterfly_blue": 0.08, "col_butterfly_green": 0.07, "col_butterfly_big": 0.06,
+             "col_seashell_amber": 0.06, "col_seashell_horn": 0.07, "col_seashell_ pink": 0.06, "col_seashell_star": 0.06,
+             "col_seashell_royal": 0.06, "col_seashell_moon": 0.05, "col_seashell_arch": 0.06, "col_seashell_mist": 0.08,
+             "col_rock_lapis": 0.06, "col_rock_diorite": 0.08, "col_rock_sphalerite": 0.05, "col_rock_quartz": 0.05,
+             "col_rock_sandstone": 0.05, "col_rock_travertine": 0.06, "col_rock_granite": 0.06, "col_rock_serpentine": 0.06,
+             "col_feather_thrush": 0.07, "col_feather_eagle": 0.06, "col_feather_parrot": 0.05, "col_feather_pheasant": 0.05,
+             "col_feather_hoopoe": 0.06, "col_feather_jay": 0.07, "col_feather_woodpecker": 0.06, "col_feather_crow": 0.07,
+             "col_object_spoon": 0.07, "col_object_comb": 0.06, "col_object_sickle": 0.08, "col_object_urn": 0.06,
+             "col_object_slingshot": 0.08, "col_object_doll": 0.07, "col_object_wheel": 0.08, "col_object_shaker": 0.07,
+             "col_bug_twig": 0.05, "col_bug_grasshopper": 0.07, "col_bug_dragonfly": 0.07, "col_bug_spider": 0.05,
+             "col_bug_beetle": 0.06, "col_bug_centipede": 0.07, "col_bug_bumblebee": 0.1, "col_bug_ladybug": 0.09,
+             "col_flower_lilly": 0.09, "col_flower_iris": 0.07, "col_flower_calla": 0.06, "col_flower_freesia": 0.06,
+             "col_flower_sunflower": 0.07, "col_flower_pansy": 0.06, "col_flower_gerbera": 0.06, "col_flower_strelitzia": 0.2,
+             "col_nature_cone": 0.08, "col_nature_nut": 0.08, "col_nature_moss": 0.07, "col_nature_lichen": 0.09,
+             "col_nature_bark": 0.15, "col_nature_seeds": 0.1, "col_nature_sorb": 0.09, "col_nature_champignons": 0.12,
+             "col_animal_egg": 0.09, "col_animal_fishbone": 0.1, "col_animal_choral": 0.2, "col_animal_shell": 0.25,
+             "col_animal_wool": 0.1, "col_animal_horn": 0.09, "col_animal_tooth": 0.15, "col_animal_fossil": 0.2,
+             "col_travel_map": 0.09, "col_travel_compass": 0.06, "col_travel_boots": 0.09, "col_travel_sleepingbag": 0.4,
+             "col_travel_lighter": 0.06, "col_travel_waterbottle": 0.08, "col_travel_hat": 0.08, "col_travel_medpack": 0.05,
+             "col_mask_carnival": 0.04, "col_mask_cannibal": 0.07, "col_mask_game": 0.06, "col_mask_wood": 0.127,
+             "col_mask_decorative":0.15 , "col_mask_flower": 0.07, "col_mask_smiling": 0.06, "col_mask_harvest": 0.09}
 
 # TODO what if the used materials are crafted not found
 # Use 1 / materials value
@@ -37,7 +59,7 @@ drop_rate = {"obsidian": 0.055, "thorny_twig": 0.1, "bone": 0.21, "jute_string":
 # is similar to clay and stone. is EXACTLY like clay and stone
 # TODO items not crafted OR dropped, like klits sulas un garsvielas
 # TODO make so can enter items name and script will pull value from drop_rates.py
-# replaced that with dictionary and made input work
+# replaced that with dictionary and made raw_input work
 # TODO for drop rates could take into account mine timer, like for water
 # DONE mines takes the unupgraded version
 # TODO crafted amount and timer could be out side of the loop, somehow
@@ -61,6 +83,7 @@ drop_rate = {"obsidian": 0.055, "thorny_twig": 0.1, "bone": 0.21, "jute_string":
 # TODO what to do with items that take time?
 # DONE 5min = 4 cents
 # TODO food is not being taken into account yet
+# DONE food = 36.0
 # TODO items you can only buy with money
 # DONE 1 shell = 0.6
 # TODO fishes, don't forget that uses worms and stuff, but also has drop_rate
@@ -70,7 +93,14 @@ drop_rate = {"obsidian": 0.055, "thorny_twig": 0.1, "bone": 0.21, "jute_string":
 # DONE
 # TODO animals, based on shell_gain?
 # TODO materials you get form animals (for egg chicken is additional item)
+# additional items: animal and what you feed with and timer how long grown takes to get hungry
 # TODO fishing stuff
+# DONE
+# TODO collection stuff
+# TODO value of recipe dish as an item
+# TODO dekori
+# TODO stuff you buy only with rubies
+# TODO things that need to be built
 
 """for crafting recipe - read crafting.JSON, split reward at, remove ones where
 need to know how many of what thing is used to create the item
@@ -116,7 +146,8 @@ gained_worth = []
 
 def worth(item, additional_worth):
     # worth for basic base materials
-    material_amount = float(input("Gained material amount: "))
+    print("-----------------")
+    material_amount = float(raw_input("Gained material amount: "))
     if item in drop_rate:
         material_drop_rate = drop_rate[item]
     else:
@@ -125,8 +156,8 @@ def worth(item, additional_worth):
         ensured_drop = material_drop_rate
     else:
         ensured_drop = 1 / material_drop_rate
-    raw_timer = float(input("Timer in min (0 if none): "))
-    used_energy = float(input("Energy used: "))
+    raw_timer = float(raw_input("Timer in min (0 if none): "))
+    used_energy = float(raw_input("Energy used: "))
     print("-----------------")
     timer = raw_timer / 1.25
     items_worth = ((ensured_drop * (used_energy * one_energy) + timer) / material_amount) + additional_worth
@@ -140,11 +171,11 @@ def additional_items():
     # additional function to worth() if additional items are needed
     # mainly used for mines
     additional_total = []
-    additional_amount = int(input("How many different additional items are needed?: "))
+    additional_amount = int(raw_input("How many different additional items are needed?: "))
     for i in range(additional_amount):
-        add_item = str(input("Additional item: "))
-        add_item_amount = int(input("How many of these items are used?: "))
         print("-----------------")
+        add_item = str(raw_input("Additional item: "))
+        add_item_amount = int(raw_input("How many of these items are used?: "))
         for n in range(add_item_amount):
             additional_total.append(item_value[add_item])
     additional_worth = sum(float(x) for x in additional_total)
@@ -154,16 +185,16 @@ def additional_items():
 def animals(item):
     # function to calculate worth of animals
     feditem_total = []
-    raw_timer = float(input("Timer in min (0 if none): "))
+    raw_timer = float(raw_input("Timer in min (0 if none): "))
     timer = raw_timer / 1.25
-    hp = float(input("Animals HP: "))
-    raw_currency = str(input("What do you pay with: "))
+    hp = float(raw_input("Animals HP: "))
+    raw_currency = str(raw_input("What do you pay with: "))
     currency = item_value[raw_currency]
-    currency_amount = float(input("How much of this currency is paid: "))
-    feditem_amount = int(input("How many different items you feed animal with: "))
+    currency_amount = float(raw_input("How much of this currency is paid: "))
+    feditem_amount = int(raw_input("How many different items you feed animal with: "))
     for i in range(feditem_amount):
-        food_item = str(input("Fed item: "))
-        food_item_amount = int(input("How many of these items are used?: "))
+        food_item = str(raw_input("Fed item: "))
+        food_item_amount = int(raw_input("How many of these items are used?: "))
         print("-----------------")
         for n in range(food_item_amount):
             feditem_total.append(item_value[food_item])
@@ -177,14 +208,14 @@ def animals(item):
 
 def plants(item):
     # function to calculate worth of plants
-    raw_timer = float(input("Timer in min (0 if none): "))
+    raw_timer = float(raw_input("Timer in min (0 if none): "))
     timer = raw_timer / 1.25
-    material_amount = float(input("Gained amount: "))
+    material_amount = float(raw_input("Gained amount: "))
     currency_total = []
-    dif_currencies = int(input("How many different currencies are used: "))
+    dif_currencies = int(raw_input("How many different currencies are used: "))
     for i in range(dif_currencies):
-        currency = str(input("What do you pay with: "))
-        currency_amount = int(input("How much of this currency is paid: "))
+        currency = str(raw_input("What do you pay with: "))
+        currency_amount = int(raw_input("How much of this currency is paid: "))
         print("-----------------")
         for n in range(currency_amount):
             currency_total.append(item_value[currency])
@@ -194,19 +225,19 @@ def plants(item):
         json.dump(item_value, g)
     print("Items worth:", items_worth)
 
-item = str(input("Item you want to calculate worth for: "))
+item = str(raw_input("Item you want to calculate worth for: "))
 if item in item_value:
     print("Items worth:", item_value[item])
 else:
-    is_plant = str(input("Is the item a plant? Y/N: "))
+    is_plant = str(raw_input("Is the item a plant? Y/N: "))
     if is_plant == "Y" or is_plant == "y":
         plants(item)
     else:
-        is_animal = str(input("Is the item an animal? Y/N: "))
+        is_animal = str(raw_input("Is the item an animal? Y/N: "))
         if is_animal == "Y" or is_animal == "y":
             animals(item)
         else:
-            needs_others = str(input("Are additional items needed? Y/N: "))
+            needs_others = str(raw_input("Are additional items needed? Y/N: "))
             if needs_others == "Y" or needs_others == "y":
                 additional_items()
             else:
