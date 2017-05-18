@@ -59,7 +59,7 @@ drop_rate = {"obsidian": 0.055, "thorny_twig": 0.1, "bone": 0.21, "jute_string":
 # is similar to clay and stone. is EXACTLY like clay and stone
 # TODO items not crafted OR dropped, like klits sulas un garsvielas
 # TODO make so can enter items name and script will pull value from drop_rates.py
-# replaced that with dictionary and made raw_input work
+# replaced that with dictionary and made input work
 # TODO for drop rates could take into account mine timer, like for water
 # DONE mines takes the unupgraded version
 # TODO crafted amount and timer could be out side of the loop, somehow
@@ -147,7 +147,7 @@ gained_worth = []
 def worth(item, additional_worth):
     # worth for basic base materials
     print("-----------------")
-    material_amount = float(raw_input("Gained material amount: "))
+    material_amount = float(input("Gained material amount: "))
     if item in drop_rate:
         material_drop_rate = drop_rate[item]
     else:
@@ -156,8 +156,8 @@ def worth(item, additional_worth):
         ensured_drop = material_drop_rate
     else:
         ensured_drop = 1 / material_drop_rate
-    raw_timer = float(raw_input("Timer in min (0 if none): "))
-    used_energy = float(raw_input("Energy used: "))
+    raw_timer = float(input("Timer in min (0 if none): "))
+    used_energy = float(input("Energy used: "))
     print("-----------------")
     timer = raw_timer / 1.25
     items_worth = ((ensured_drop * (used_energy * one_energy) + timer) / material_amount) + additional_worth
@@ -171,11 +171,11 @@ def additional_items():
     # additional function to worth() if additional items are needed
     # mainly used for mines
     additional_total = []
-    additional_amount = int(raw_input("How many different additional items are needed?: "))
+    additional_amount = int(input("How many different additional items are needed?: "))
     for i in range(additional_amount):
         print("-----------------")
-        add_item = str(raw_input("Additional item: "))
-        add_item_amount = int(raw_input("How many of these items are used?: "))
+        add_item = str(input("Additional item: "))
+        add_item_amount = int(input("How many of these items are used?: "))
         for n in range(add_item_amount):
             additional_total.append(item_value[add_item])
     additional_worth = sum(float(x) for x in additional_total)
@@ -185,17 +185,17 @@ def additional_items():
 def animals(item):
     # function to calculate worth of animals
     feditem_total = []
-    raw_timer = float(raw_input("Timer in min (0 if none): "))
+    raw_timer = float(input("Timer in min (0 if none): "))
     timer = raw_timer / 1.25
-    hp = float(raw_input("Animals HP: "))
-    raw_currency = str(raw_input("What do you pay with: "))
+    hp = float(input("Animals HP: "))
+    raw_currency = str(input("What do you pay with: "))
     currency = item_value[raw_currency]
-    currency_amount = float(raw_input("How much of this currency is paid: "))
-    feditem_amount = int(raw_input("How many different items you feed animal with: "))
+    currency_amount = float(input("How much of this currency is paid: "))
+    feditem_amount = int(input("How many different items you feed animal with: "))
     for i in range(feditem_amount):
-        food_item = str(raw_input("Fed item: "))
-        food_item_amount = int(raw_input("How many of these items are used?: "))
         print("-----------------")
+        food_item = str(input("Fed item: "))
+        food_item_amount = int(input("How many of these items are used?: "))
         for n in range(food_item_amount):
             feditem_total.append(item_value[food_item])
     fedfood_worth = sum(float(x) for x in feditem_total)
@@ -208,15 +208,15 @@ def animals(item):
 
 def plants(item):
     # function to calculate worth of plants
-    raw_timer = float(raw_input("Timer in min (0 if none): "))
+    raw_timer = float(input("Timer in min (0 if none): "))
     timer = raw_timer / 1.25
-    material_amount = float(raw_input("Gained amount: "))
+    material_amount = float(input("Gained amount: "))
     currency_total = []
-    dif_currencies = int(raw_input("How many different currencies are used: "))
+    dif_currencies = int(input("How many different currencies are used: "))
     for i in range(dif_currencies):
-        currency = str(raw_input("What do you pay with: "))
-        currency_amount = int(raw_input("How much of this currency is paid: "))
         print("-----------------")
+        currency = str(input("What do you pay with: "))
+        currency_amount = int(input("How much of this currency is paid: "))
         for n in range(currency_amount):
             currency_total.append(item_value[currency])
     items_worth = (((one_energy * 2) + timer + sum(float(x) for x in currency_total)) / material_amount)
@@ -225,20 +225,59 @@ def plants(item):
         json.dump(item_value, g)
     print("Items worth:", items_worth)
 
-item = str(raw_input("Item you want to calculate worth for: "))
+
+def decor(item):
+    # function to calculate worth of animals
+    decoritem_total = []
+    print("-----------------")
+    raw_currency = str(input("What do you pay with: "))
+    currency = item_value[raw_currency]
+    currency_amount = float(input("How much of this currency is paid: "))
+    print("-----------------")
+    hp = float(input("Decors HP: "))
+    finish_price = []
+    print("-----------------")
+    builtitem_amount = int(input("How many different items build with: "))
+    for i in range(builtitem_amount):
+        print("-----------------")
+        food_item = str(input("Build item: "))
+        food_item_amount = int(input("How many of these items are used?: "))
+        for j in range(food_item_amount):
+            decoritem_total.append(item_value[food_item])
+    print("-----------------")
+    finishitem_amount = int(input("How many different items are needed to finish building: "))
+    for n in range(finishitem_amount):
+        print("-----------------")
+        needed_item = str(input("Item needed to finish: "))
+        needed_item_amount = int(input("How many of these items are used?: "))
+        for m in range(needed_item_amount):
+            finish_price.append(item_value[needed_item])
+    useditem_worth = sum(float(x) for x in decoritem_total)
+    finsih_worth = sum(float(x) for x in finish_price)
+    items_worth = ((one_energy * hp) + useditem_worth) + (currency * currency_amount) + finsih_worth
+    with open("worth_dic.json", "w") as g:
+        item_value[item] = items_worth
+        json.dump(item_value, g)
+    print("Items worth:", items_worth)
+
+item = str(input("Item you want to calculate worth for: "))
 if item in item_value:
     print("Items worth:", item_value[item])
 else:
-    is_plant = str(raw_input("Is the item a plant? Y/N: "))
+    is_plant = str(input("Is the item a plant? Y/N: "))
     if is_plant == "Y" or is_plant == "y":
         plants(item)
     else:
-        is_animal = str(raw_input("Is the item an animal? Y/N: "))
+        is_animal = str(input("Is the item an animal? Y/N: "))
         if is_animal == "Y" or is_animal == "y":
             animals(item)
         else:
-            needs_others = str(raw_input("Are additional items needed? Y/N: "))
-            if needs_others == "Y" or needs_others == "y":
-                additional_items()
+            is_decor = str(input("Is the item a decor that needs building? Y/N: "))
+            if is_decor == "Y" or is_decor == "y":
+                decor(item)
             else:
-                worth(item, 0)
+                needs_others = str(input("Are additional items needed? Y/N: "))
+                if needs_others == "Y" or needs_others == "y":
+                    additional_items()
+                else:
+                    worth(item, 0)
