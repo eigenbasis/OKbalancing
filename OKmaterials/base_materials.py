@@ -19,7 +19,7 @@ drop_rate = {"obsidian": 0.055, "thorny_twig": 0.1, "bone": 0.21, "jute_string":
              "sea_cabbage": 0.2, "gold_fish": 0.05, "blue_guppy": 0.1,
              "jellyfish": 0.15, "royal_crab": 0.1, "octopus": 0.06, "doubloon_silver_octopus": 0.05,
              "shark_hammerhead": 0.07, "clownfish": 0.2, "lion_fish": 0.1, "blossom_aloe": 0.7, "blossom_curcuma": 0.7,
-             "bees_wax": 0.3, "poison": 0.3,
+             "bees_wax": 0.3, "poison": 0.3, "vulcano_rock": 0.4,
              "col_butterfly_tricolor": 0.07, "col_butterfly_pear": 0.06, "col_butterfly_fire": 0.07, "col_butterfly_romantic": 0.05,
              "col_butterfly_pink": 0.08, "col_butterfly_blue": 0.08, "col_butterfly_green": 0.07, "col_butterfly_big": 0.06,
              "col_seashell_amber": 0.06, "col_seashell_horn": 0.07, "col_seashell_ pink": 0.06, "col_seashell_star": 0.06,
